@@ -5,7 +5,7 @@
             <CharacterDisplay :character="character"></CharacterDisplay>
             <AnswerInput></AnswerInput>
             <v-btn color="warning">Cancel</v-btn>
-            <v-btn color="success">Submit</v-btn>
+            <v-btn color="success" @click="submitQuestion('あ')">Next</v-btn>
         </v-container>
 </template>
 <script type="text/javascript">
@@ -21,28 +21,42 @@
     data () {
         return {
             nihonwords: null,
-            character: {
-                'character': null,
-                'answered': false,
-            },
-            answered: '',
+            character: null,
+            counter: 0,
         }
     },
 
     mounted () {
         this.nihonwords = jpwords;
-
-        this.randomQuestion();
+        this.shuffleQuestions();
+        this.displayQuestion();
     },
 
     methods: {
-        randomQuestion () {
-            const length = this.nihonwords.length - 1;
-            let id = Math.floor(Math.random() * length) + 1;
-
-            this.character.character = this.nihonwords[id].hiragana;
-            this.character.answered  = true;
+        submitQuestion(string) {
+            this.checkQuestion(string);
+            this.counter++;
+            this.displayQuestion();
+            
         },
+        shuffleQuestions () {
+           this.nihonwords.sort(function (a, b) {return Math.random() - 0.5;});
+        },
+
+        displayQuestion() {
+            if (this.counter < this.nihonwords.length) {
+                this.character = this.nihonwords[this.counter].hiragana;
+            } else {
+                alert('finished');
+            }
+            
+        },
+
+        checkQuestion(string) {
+            if (string === this.character) {
+                console.log('sekai');
+            }
+        }
     }
 }
 </script>
