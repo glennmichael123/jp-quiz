@@ -53,9 +53,8 @@
         },
 
         checkQuestion(string) {
-            if (string === this.character) {
-                console.log('sekai');
-            }
+            // if (string === this.character) {
+            // }
         }
     }
 }

@@ -15,7 +15,7 @@
         <v-flex md12>
             <v-card color="white" class="black--text card-character">
                 <v-card-text>
-                    <h1 v-if="" class="character">{{ character }}</h1>
+                    <h1 class="character">{{ character }}</h1>
                 </v-card-text>
             </v-card>
         </v-flex>
