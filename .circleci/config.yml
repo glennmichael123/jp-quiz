@@ -1,13 +1,27 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: debian:stretch
+    machine: true
     steps:
       - checkout
       - run:
           name: Greeting
           command: echo Hello, world.
       - run:
-          name: Print the Current Time
-          command: date
+          name: delete lock files
+          command: sudo rm /var/lib/apt/lists/lock && sudo rm /var/cache/apt/archives/lock && sudo rm /var/lib/dpkg/lock
+      - run: 
+          name: install curl
+          command: sudo apt-get install -y curl
+      - run: 
+          name: curl npm
+          command: curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+      - run:
+          name: install npm 
+          command: sudo apt-get install -y nodejs
+      - run:
+          name: install npm packages
+          command: npm install
+      - run: 
+          name: run npm tests
+          command: npm run test
