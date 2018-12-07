@@ -11,6 +11,8 @@
 			<v-text-field
 			label="Answer"
 			class="answer-input"
+            :value="$store.getters.getAnswer"
+            @input="passAnswer"
 			required
 			></v-text-field>
 		</v-flex>
@@ -19,8 +21,9 @@
 
 <script type="text/javascript">
     export default {
-        data () {
-            return {
+        methods: {
+            passAnswer(ans) {
+                this.$store.commit('passAnswer', ans);
             }
         }
     }

@@ -1,3 +1,5 @@
+/* eslint-disable no-alert, no-console */
+
 import Vue from 'vue'
 // import firebase from 'firebase/app';
 import './plugins/vuetify'
@@ -8,6 +10,10 @@ import VueProgressBar from 'vue-progressbar'
 import App from './App.vue'
 import Home from './components/Home.vue'
 import HiraganaRomajiQuiz from './components/quizcategories/HiraganaRomajiQuiz.vue'
+import { store } from './store/store'
+
+Vue.use(VueRouter)
+Vue.use(VueProgressBar, options)
 
 const options = {
   color: '#26a69a',
@@ -23,19 +29,6 @@ const options = {
   inverse: false
 }
 
-// const configFirebase = {
-//     apiKey: "AIzaSyB-OtYSyQgIcOtg9NiKZ_rDDEgiCVtPg48",
-//     authDomain: "jp-quiz.firebaseapp.com",
-//     databaseURL: "https://jp-quiz.firebaseio.com",
-//     projectId: "jp-quiz",
-//     storageBucket: "jp-quiz.appspot.com",
-//     messagingSenderId: "909329774167"
-// };
-
-// firebase.initializeApp(configFirebase);
-
-Vue.use(VueProgressBar, options)
-
 const meta = {
   progress: {
     func: [
@@ -46,8 +39,6 @@ const meta = {
     ]
   }
 }
-
-Vue.use(VueRouter)
 
 const routes = [ 
   { path: '/', component:  Home, name: '/', meta },
@@ -63,6 +54,7 @@ Vue.config.productionTip = false
 
 new Vue({
   el: '#app',
+  store: store,
   template: '<App />',
   components: { App },
   render: h => h(App),
