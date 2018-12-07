@@ -28,7 +28,5 @@ span {
 
 <script type="text/javascript">
     export default {
-        methods: {
-        }
     }
 </script>

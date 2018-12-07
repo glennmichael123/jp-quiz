@@ -1,7 +1,6 @@
 <template>
     <v-container grid-list-md text-xs-center class="mt-5">
-        <QuizProgress
-            :progress="$store.getters.getProgress">
+        <QuizProgress>
         </QuizProgress>
 
         <Instructions></Instructions>

@@ -11,16 +11,11 @@
 		color="green" 
 		height="3"
 		class="progress"
-		v-model="progress">
+		v-model="$store.getters.getProgress">
 	</v-progress-linear>
 </template>
 
 <script type="text/javascript">
     export default {
-    	props: ['progress'],
-        data () {
-            return {
-           	}
-        }
     }
 </script>
