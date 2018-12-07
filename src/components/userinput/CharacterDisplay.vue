@@ -6,16 +6,16 @@
 }
 
 .character {
-    font-size: 60px;
+    font-size: 100px;
 }
 </style>
 
 <template>
     <v-layout row wrap class="mt-5">
         <v-flex md12>
-            <v-card color="white" class="black--text card-character">
+            <v-card height="180" color="white" class="black--text card-character">
                 <v-card-text>
-                    <h1 v-if="" class="character">{{ character }}</h1>
+                    <h1 class="character">{{ character }}</h1>
                 </v-card-text>
             </v-card>
         </v-flex>
