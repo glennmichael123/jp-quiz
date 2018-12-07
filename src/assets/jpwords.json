@@ -23,5 +23,30 @@
     "id": 5,
     "hiragana": "お",
     "romaji": "o"
+  },
+  {
+    "id": 6,
+    "hiragana": "か",
+    "romaji": "ka"
+  },
+  {
+    "id": 7,
+    "hiragana": "き",
+    "romaji": "ki"
+  },
+  {
+    "id": 8,
+    "hiragana": "く",
+    "romaji": "ku"
+  },
+  {
+    "id": 9,
+    "hiragana": "け",
+    "romaji": "ke"
+  },
+  {
+    "id": 10,
+    "hiragana": "こ",
+    "romaji": "ko"
   }
 ]

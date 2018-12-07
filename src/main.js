@@ -1,7 +1,4 @@
-/* eslint-disable no-alert, no-console */
-
 import Vue from 'vue'
-// import firebase from 'firebase/app';
 import './plugins/vuetify'
 import VueRouter from 'vue-router'
 import 'vuetify/dist/vuetify.min.css' 
