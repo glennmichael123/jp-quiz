@@ -11,7 +11,7 @@
 </style>
 
 <template>
-    <v-layout row wrap class="mt-5">
+    <v-layout row wrap class="mt-4">
         <v-flex md12>
             <v-card height="180" color="white" class="black--text card-character">
                 <v-card-text>

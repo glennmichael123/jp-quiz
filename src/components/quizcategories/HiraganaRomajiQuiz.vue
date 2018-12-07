@@ -2,7 +2,7 @@
     <v-container grid-list-md text-xs-center class="mt-5">
         <Instructions></Instructions>
         <CharacterDisplay :character="character"></CharacterDisplay>
-        <AnswerInput></AnswerInput>
+        <AnswerInput :temporaryDisable="rightAnswer"></AnswerInput>
         <AnswerResponse :wrongAnswer="wrongAnswer" :rightAnswer="rightAnswer"></AnswerResponse>
             <v-layout row wrap>
                 <v-flex md6>
@@ -10,7 +10,7 @@
                 </v-flex>
 
                 <v-flex md6 v-if="!finished">
-                    <v-btn v-if="!rightAnswer" color="primary" @click="submitAnswer">Check answer</v-btn>
+                    <v-btn v-if="!rightAnswer" :disabled="$store.getters.getAnswer == ''" color="primary" @click="submitAnswer">Check answer</v-btn>
                     <v-btn v-else color="success" @click="continueQuiz">Continue</v-btn>
                 </v-flex>
 
@@ -38,7 +38,7 @@
             finished: false,
             wrongAnswer: false,
             rightAnswer: false,
-            continueQuestion: true,
+            continueQuestion: false,
         }
     },
 
@@ -61,25 +61,25 @@
         displayQuestion() {
             if (this.continueQuestion) {
                 this.counter++;
-                if (this.counter < this.nihonwords.length) {
-                    this.character = this.nihonwords[this.counter].hiragana;
-                } else {
-                    this.finished = true;
-                }
-            }    
+            }
+
+            if (this.counter < this.nihonwords.length) {
+                this.character = this.nihonwords[this.counter].hiragana;
+            } else {
+                this.finished = true;
+            }  
         },
 
         checkQuestion(string) {
             if (string === this.nihonwords[this.counter].romaji) {
                 this.wrongAnswer = false;
                 this.rightAnswer = true;
-                this.continueQuestion = false;
             } else {
                 this.wrongAnswer = true;
                 this.rightAnswer = false;
-                this.continueQuestion = false;
             }
 
+            this.continueQuestion = false;
             this.$store.commit('resetAnswer');
         },
 
@@ -88,6 +88,7 @@
             this.rightAnswer = false;
             this.displayQuestion();
         }
+
     }
 }
 </script>

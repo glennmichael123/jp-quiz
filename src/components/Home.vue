@@ -1,11 +1,11 @@
 <template>
-    <v-container grid-list-md text-xs-center>
+    <v-container grid-list-md text-xs-center class="mt-5">
         <v-layout row wrap>
             <HiraganaRomaji></HiraganaRomaji>
             <RomajiHiragana></RomajiHiragana>
         </v-layout>
 
-        <v-layout row wrap mt-2>
+        <v-layout row wrap mt-5>
             <KatakanaRomaji></KatakanaRomaji>
             <RomajiKatakana></RomajiKatakana>
         </v-layout>
