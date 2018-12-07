@@ -1,6 +1,6 @@
 <template>
     <v-flex md6>
-        <v-card color="teal lighten-1" class="black--text">
+        <v-card color="blue-grey lighten-2">
             <v-card-title primary-title>
                 <div>
                     <div class="headline">Hiragana to Romaji</div>
@@ -8,7 +8,7 @@
                 </div>
             </v-card-title>
             <v-card-actions>
-                <v-btn :to="{ name: 'hiraganaromajiquiz' }" flat dark>Take quiz</v-btn>
+                <v-btn :to="{ name: 'hiraganaromajiquiz' }">Take quiz</v-btn>
             </v-card-actions>
         </v-card>
     </v-flex>
