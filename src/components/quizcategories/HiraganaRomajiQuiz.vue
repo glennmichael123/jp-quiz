@@ -1,23 +1,28 @@
 <template>
     <v-container grid-list-md text-xs-center class="mt-5">
+        <QuizProgress
+            :progress="$store.getters.getProgress">
+        </QuizProgress>
+
         <Instructions></Instructions>
-        <CharacterDisplay :character="character"></CharacterDisplay>
-        <AnswerInput :temporaryDisable="rightAnswer"></AnswerInput>
-        <AnswerResponse :wrongAnswer="wrongAnswer" :rightAnswer="rightAnswer"></AnswerResponse>
-            <v-layout row wrap>
-                <v-flex md6>
-                    <v-btn :to="{ name: '/' }" color="warning">Cancel</v-btn>
-                </v-flex>
 
-                <v-flex md6 v-if="!finished">
-                    <v-btn v-if="!rightAnswer" :disabled="$store.getters.getAnswer == ''" color="primary" @click="submitAnswer">Check answer</v-btn>
-                    <v-btn v-else color="success" @click="continueQuiz">Continue</v-btn>
-                </v-flex>
+        <UserScore></UserScore>
 
-                <v-flex md6 v-else>
-                    <v-btn color="primary">Finish</v-btn>
-                </v-flex>
-            </v-layout>
+        <CharacterDisplay 
+            :character="$store.getters.getCharacter" 
+            :fade="$store.getters.getFade">
+        </CharacterDisplay>
+        
+        <AnswerInput 
+            :temporaryDisable="$store.getters.getRightAnswer">    
+        </AnswerInput>
+        <AnswerResponse 
+            :wrongAnswer="$store.getters.getWrongAnswer" 
+            :rightAnswer="$store.getters.getRightAnswer">
+        </AnswerResponse>
+
+        <UserControls></UserControls>
+
     </v-container>
 </template>
 <script type="text/javascript">
@@ -25,70 +30,33 @@
     import Instructions from '../userinput/Instructions';
     import AnswerInput from '../userinput/AnswerInput';
     import AnswerResponse from '../userinput/AnswerResponse';
+    import UserControls from '../userinput/UserControls';
+    import QuizProgress from '../userprogress/QuizProgress';
+    import UserScore from '../userprogress/UserScore';
     import jpwords from '../../assets/jpwords.json';
 
     export default {
-    components: { CharacterDisplay, Instructions, AnswerInput, AnswerResponse },
+    components: { CharacterDisplay, Instructions, AnswerInput, AnswerResponse,  QuizProgress, UserControls, UserScore },
     name: 'HiraganaRomajiQuiz',
-    data () {
-        return {
-            nihonwords: null,
-            character: null,
-            counter: 0,
-            finished: false,
-            wrongAnswer: false,
-            rightAnswer: false,
-            continueQuestion: false,
-        }
-    },
 
     mounted () {
-        this.nihonwords = jpwords;
+        this.$store.commit('assignKanaWords', jpwords);
         this.shuffleQuestions();
         this.displayQuestion();
     },
 
+    destroyed () {
+        this.$store.commit('reset');
+    },
+
     methods: {
-        submitAnswer() {
-            this.checkQuestion(this.$store.getters.getAnswer);
-            this.displayQuestion();
-            
-        },
         shuffleQuestions () {
-           this.nihonwords.sort(function () {return Math.random() - 0.5;});
+           this.$store.getters.getKanaWords.sort(function () {return Math.random() - 0.5;});
         },
 
         displayQuestion() {
-            if (this.continueQuestion) {
-                this.counter++;
-            }
-
-            if (this.counter < this.nihonwords.length) {
-                this.character = this.nihonwords[this.counter].hiragana;
-            } else {
-                this.finished = true;
-            }  
+            this.$store.commit('assignCharacter', this.$store.getters.getKanaWords[this.$store.getters.getQuestionCounter].hiragana);
         },
-
-        checkQuestion(string) {
-            if (string === this.nihonwords[this.counter].romaji) {
-                this.wrongAnswer = false;
-                this.rightAnswer = true;
-            } else {
-                this.wrongAnswer = true;
-                this.rightAnswer = false;
-            }
-
-            this.continueQuestion = false;
-            this.$store.commit('resetAnswer');
-        },
-
-        continueQuiz () {
-            this.continueQuestion = true;
-            this.rightAnswer = false;
-            this.displayQuestion();
-        }
-
     }
 }
 </script>
