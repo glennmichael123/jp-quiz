@@ -19,6 +19,7 @@ const initialState = () => {
         quizProgress: 0,
         correctScore: 0,
         wrongScore: 0,
+        dialog: false,
     };
 
     return store;
@@ -75,6 +76,14 @@ export const store = new Vuex.Store({
 
         getScoreWrong: state => {
             return state.wrongScore;
+        },
+
+        getQuizStatus: state => {
+            return state.quizOnGoing;
+        },
+
+        getDialogStatus: state => {
+            return state.dialog;
         }
     },
 
@@ -129,6 +138,14 @@ export const store = new Vuex.Store({
 
         updateScoreWrong: state => {
             state.wrongScore++;
+        },
+
+        startQuiz: (state, status) => {
+            state.quizOnGoing = status;
+        },
+
+        toggleDialog: (state, status) => {
+            state.dialog = status;
         },
 
         reset (state) {

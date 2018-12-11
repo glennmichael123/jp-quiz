@@ -40,6 +40,7 @@
 
     mounted () {
         this.$store.commit('assignKanaWords', jpwords);
+        this.$store.commit('startQuiz', true);
         this.shuffleQuestions();
         this.displayQuestion();
     },
