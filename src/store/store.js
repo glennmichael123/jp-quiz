@@ -17,6 +17,8 @@ const initialState = () => {
         fadeCharacter: false,
         fade: false,
         quizProgress: 0,
+        correctScore: 0,
+        wrongScore: 0,
     };
 
     return store;
@@ -66,6 +68,14 @@ export const store = new Vuex.Store({
         getProgress: state => {
             return state.quizProgress;
         },
+
+        getScoreCorrect: state => {
+            return state.correctScore;
+        },
+
+        getScoreWrong: state => {
+            return state.wrongScore;
+        }
     },
 
     mutations: {
@@ -111,6 +121,14 @@ export const store = new Vuex.Store({
 
         updateProgress(state, progress) {
             state.quizProgress = progress;
+        },
+
+        updateScoreCorrect: state => {
+            state.correctScore++;
+        },
+
+        updateScoreWrong: state => {
+            state.wrongScore++;
         },
 
         reset (state) {

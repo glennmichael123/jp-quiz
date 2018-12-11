@@ -43,9 +43,11 @@
                 if (string === this.$store.getters.getKanaWords[this.$store.getters.getQuestionCounter].romaji) {
                     this.$store.commit('changeWrongAnswer', false);
                     this.$store.commit('changeRightAnswer', true);
+                    this.$store.commit('updateScoreCorrect');
                 } else {
                     this.$store.commit('changeWrongAnswer', true);
                     this.$store.commit('changeRightAnswer', false);
+                    this.$store.commit('updateScoreWrong');
                 }
 
                 this.$store.commit('proceedQuestion', false);
