@@ -35,7 +35,11 @@
         },
         methods: {
             goHome() {
-                this.$router.push({ path: '/' })
+                if (this.$store.getters.getQuizStatus) {
+                    this.$store.commit('toggleDialog', true);
+                } else {
+                    this.$router.push({ name: '/' });
+                }
             }
         }
     }

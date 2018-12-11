@@ -1,7 +1,7 @@
 <template>
     <v-layout row wrap>
         <v-flex md6>
-            <v-btn :to="{ name: '/' }" color="warning">Cancel</v-btn>
+            <QuitDialog></QuitDialog>
         </v-flex>
 
         <v-flex md6 v-if="!$store.getters.getFinished">
@@ -16,12 +16,11 @@
 </template>
 
 <script type="text/javascript">
-    export default {
-        data () {
-            return {
-            }
-        },
 
+    import QuitDialog from './QuitDialog';
+
+    export default {
+        components: { QuitDialog },
         methods: {
             submitAnswer() {
                 this.checkQuestion(this.$store.getters.getAnswer);
@@ -68,8 +67,7 @@
 
             updateProgress() {
                 this.$store.commit('updateProgress', ((this.$store.getters.getQuestionCounter + 1) / this.$store.getters.getKanaWords.length) * 100); 
-            }
-
+            },
         }
     }
 </script>
