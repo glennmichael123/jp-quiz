@@ -1,16 +1,16 @@
 <template>
     <v-dialog
-    v-model="$store.getters.getDialogStatus"
+    v-model="dialog"
     width="500"
     >
         <v-btn
             slot="activator"
-            color="warning"
+            color="red"
             @click="$store.commit('toggleDialog', true)"
             dark
         >
 
-            Cancel
+            やめる
         </v-btn>
 
         <v-card>
@@ -22,7 +22,7 @@
             </v-card-title>
 
             <v-card-text>
-                Are you sure you want to quit?
+               ほんとうにやめるき？
             </v-card-text>
 
             <v-divider></v-divider>
@@ -32,9 +32,9 @@
                 <v-btn
                     color="primary"
                     flat
-                    @click="$store.commit('toggleDialog', false)"
+                    @click="dialog = false"
                 >
-                    Cancel
+                    キャンセル
                 </v-btn>
 
                 <v-btn
@@ -42,7 +42,7 @@
                     flat
                     @click="quitGame"
                 >
-                    Quit
+                    やめる
                 </v-btn>
             </v-card-actions>
         </v-card>
@@ -51,6 +51,12 @@
 
 <script type="text/javascript">
     export default {
+        data () {
+            return {
+                dialog: false
+            }
+        },
+
         methods: {
             quitGame()  {
                 this.$router.push({ name: '/' });

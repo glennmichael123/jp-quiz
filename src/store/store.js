@@ -19,7 +19,7 @@ const initialState = () => {
         quizProgress: 0,
         correctScore: 0,
         wrongScore: 0,
-        dialog: false,
+        timeUp: false,
     };
 
     return store;
@@ -84,6 +84,10 @@ export const store = new Vuex.Store({
 
         getDialogStatus: state => {
             return state.dialog;
+        },
+
+        getTimeUp: state => {
+            return state.timeUp;
         }
     },
 
@@ -146,6 +150,10 @@ export const store = new Vuex.Store({
 
         toggleDialog: (state, status) => {
             state.dialog = status;
+        },
+
+        updateTimeUp: (state, status) => {
+            state.timeUp = status;
         },
 
         reset (state) {

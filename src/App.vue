@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-toolbar>
+        <v-toolbar v-if="!$store.getters.getQuizStatus">
             <v-toolbar-title class="header-title" @click="goHome">Japanese Quiz</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">
@@ -35,11 +35,7 @@
         },
         methods: {
             goHome() {
-                if (this.$store.getters.getQuizStatus) {
-                    this.$store.commit('toggleDialog', true);
-                } else {
-                    this.$router.push({ name: '/' });
-                }
+                this.$router.push({ name: '/' });
             }
         }
     }

@@ -24,7 +24,7 @@ span {
                   :value="time"
                   :color="color"
                 >
-                    {{ secs }}
+                    {{ fullTime }}
                 </v-progress-circular> 
             </v-flex>
             <v-flex md4> 
@@ -40,29 +40,43 @@ span {
         data () {
             return {
                 time: 0,
-                secs: 5,
-                userTime: 5,
+                secs: 10,
+                userTime: 10,
                 color: 'green',
+                fullTime: '',
             }
         },
 
         mounted () {
-            setInterval(()=>{ 
-                this.countdown();
-                this.time = ((this.secs*100) / this.userTime);
-                if (this.time <= 70 && this.time >= 40) {
-                    this.color = 'orange';
-                } else if(this.time < 40) {
-                    this.color = 'red';
+            let myInterval = setInterval( () => { 
+                if (this.$store.getters.getQuizStatus) {
+                    if (this.secs > 0) {
+                        this.countdown();
+                        let minutes = Math.floor(this.secs / 60);
+                        let seconds = this.secs - minutes * 60;
+
+                        this.fullTime = `${minutes}:${seconds}`;
+
+                    } else {
+                        this.$store.commit('updateTimeUp', true);
+                        clearInterval(myInterval);
+                    }
                 }
-            },1000);
+            }, 1000); 
         },
 
         methods: {
             countdown () {
-                if (this.secs > 0) {
-                    this.secs--;
+                this.secs--;
+
+                this.time = (( this.secs * 100) / this.userTime );
+
+                if (this.time <= 40 && this.time >= 20) {
+                    this.color = 'orange';
+                } else if(this.time < 10) {
+                    this.color = 'red';
                 }
+
             }
         }
     }

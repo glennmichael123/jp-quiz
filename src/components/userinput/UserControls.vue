@@ -5,8 +5,15 @@
         </v-flex>
 
         <v-flex md6 v-if="!$store.getters.getFinished">
-            <v-btn v-if="!$store.getters.getRightAnswer" :disabled="$store.getters.getAnswer == ''" color="primary" @click="submitAnswer">Check answer</v-btn>
-            <v-btn v-else color="success" @click="continueQuiz">Continue</v-btn>
+            
+            <div v-if="!$store.getters.getQuizStatus">
+                <v-btn color="primary" @click="$store.commit('startQuiz', true)">はじめましょう</v-btn>
+            </div>
+
+            <div v-else>
+                <v-btn v-if="!$store.getters.getRightAnswer" :disabled="$store.getters.getAnswer == ''" color="primary" @click="submitAnswer">こたえをチェック </v-btn>
+                <v-btn v-else color="success" @click="continueQuiz">つぎ</v-btn>
+            </div>
         </v-flex>
 
         <v-flex md6 v-else>
