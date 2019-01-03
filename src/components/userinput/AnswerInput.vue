@@ -9,11 +9,11 @@
 	<v-layout row wrap mt-4>
 		<v-flex md12>
             <v-text-field
-            label="Answer"
+            label="こたえ"
             class="answer-input"
             :value="$store.getters.getAnswer"
             @input="passAnswer"
-            :disabled="temporaryDisable"
+            :disabled="temporaryDisable || !$store.getters.getQuizStatus"
             box
             ></v-text-field>
 		</v-flex>

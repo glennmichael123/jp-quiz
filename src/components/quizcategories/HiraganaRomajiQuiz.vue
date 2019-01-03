@@ -40,7 +40,6 @@
 
     mounted () {
         this.$store.commit('assignKanaWords', jpwords);
-        this.$store.commit('startQuiz', true);
         this.shuffleQuestions();
         this.displayQuestion();
     },
@@ -51,7 +50,7 @@
 
     methods: {
         shuffleQuestions () {
-           this.$store.getters.getKanaWords.sort(function () {return Math.random() - 0.5;});
+           this.$store.getters.getKanaWords.sort(function () { return Math.random() - 0.5; });
         },
 
         displayQuestion() {
