@@ -54,7 +54,6 @@ span {
                         this.countdown();
                         let minutes = Math.floor(this.secs / 60);
                         let seconds = this.secs - minutes * 60;
-                        let hours = Math.floor(this.secs / 3600);
 
                         this.fullTime = `${minutes}:${seconds}`;
 
