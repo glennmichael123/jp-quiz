@@ -114,8 +114,6 @@ span {
                 } else if(this.time < 10) {
                     this.classTime = 'red--text';
                 }
-
-                console.log(this.$store.getters.getFinished);
             },
 
             goHome() {
