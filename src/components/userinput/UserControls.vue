@@ -19,6 +19,35 @@
         <v-flex md6 v-else>
             <v-btn color="primary">Finish</v-btn>
         </v-flex>
+
+
+        <v-dialog
+            v-model="dialogFinish"
+            max-width="400"
+        >
+        <v-card>
+            <v-card-title class="headline">おめでとう!</v-card-title>
+                    <v-card-text>
+                       <div> You finised the quiz before time ran out.</div>
+                        <div>You have <b> {{ (($store.getters.getScoreCorrect - $store.getters.getScoreWrong ) / $store.getters.getScoreCorrect) * 100 }}% </b> accuracy. </div> 
+                        <div>すごいです！</div>
+                    </v-card-text>
+
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+
+                        <v-btn
+                            color="green darken-1"
+                            flat="flat"
+                            @click="goHome"
+                            >
+                            Finish
+                        </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+
+
     </v-layout>
 </template>
 
@@ -28,6 +57,12 @@
 
     export default {
         components: { QuitDialog },
+        data() {
+            return {
+                dialogFinish: false,
+            }
+        },
+
         methods: {
             submitAnswer() {
                 this.checkQuestion(this.$store.getters.getAnswer);
@@ -65,9 +100,14 @@
                 this.$store.commit('changeRightAnswer', false);
                 this.$store.commit('changeFade', true);
                 this.updateProgress();
+
                 setTimeout(() => {
                     this.$store.commit('changeFade', false);
                 }, 500);
+
+                if (this.$store.getters.getProgress == 100) {
+                    this.dialogFinish = true;
+                }
 
                 this.displayQuestion();
             },
@@ -75,6 +115,12 @@
             updateProgress() {
                 this.$store.commit('updateProgress', ((this.$store.getters.getQuestionCounter + 1) / this.$store.getters.getKanaWords.length) * 100); 
             },
+
+            goHome() {
+                this.dialogFinish = false;
+
+                this.$router.push('/');
+            }
         }
     }
 </script>
