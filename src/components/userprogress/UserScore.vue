@@ -20,19 +20,48 @@ span {
             </v-flex>
 
             <v-flex md4> 
-                <v-progress-circular
-                  :value="time"
-                  :color="color"
-                >
-                    {{ fullTime }}
-                </v-progress-circular> 
+                <span :class="classTime"> {{ fullTime }} </span>
             </v-flex>
             <v-flex md4> 
                 <span class="wrong red--text"><i class="fas fa-times"></i> {{ $store.getters.getScoreWrong }}</span> 
             </v-flex>
         </v-layout>
+
+
+
+        <v-dialog
+            v-model="dialogTimeUp"
+            max-width="400"
+            persistent
+        >
+        <v-card>
+            <v-card-title class="headline">ざんねんな。 :(</v-card-title>
+                    <v-card-text>
+                        <div>あなたの時間は終わりました!</div>
+                    </v-card-text>
+
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+
+                        <v-btn
+                            color="red"
+                            flat="flat"
+                            @click="goHome"
+                        >
+                            やめる
+                        </v-btn>
+
+                        <v-btn
+                            color="green darken-1"
+                            flat="flat"
+                            @click="restart"
+                        >
+                            もいちど
+                        </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </div>
-    
 </template>
 
 <script type="text/javascript">
@@ -40,15 +69,16 @@ span {
         data () {
             return {
                 time: 0,
-                secs: 10,
-                userTime: 10,
-                color: 'green',
-                fullTime: '',
+                secs: 60,
+                userTime: 60,
+                fullTime: '0:00',
+                classTime: 'green--text',
+                dialogTimeUp: false,
             }
         },
 
         mounted () {
-            let myInterval = setInterval( () => { 
+            let myInterval = setInterval(() => { 
                 if (this.$store.getters.getQuizStatus) {
                     if (this.secs > 0) {
                         this.countdown();
@@ -57,10 +87,18 @@ span {
 
                         this.fullTime = `${minutes}:${seconds}`;
 
+                        if (seconds < 10) {
+                            this.fullTime = `${minutes}:0${seconds}`;
+                        }
+
                     } else {
-                        this.$store.commit('updateTimeUp', true);
+                        this.dialogTimeUp = true;
                         clearInterval(myInterval);
                     }
+                } 
+
+                if (this.$store.getters.getFinished) {
+                    clearInterval(myInterval);
                 }
             }, 1000); 
         },
@@ -72,11 +110,20 @@ span {
                 this.time = (( this.secs * 100) / this.userTime );
 
                 if (this.time <= 40 && this.time >= 20) {
-                    this.color = 'orange';
+                    this.classTime = 'orange--text';
                 } else if(this.time < 10) {
-                    this.color = 'red';
+                    this.classTime = 'red--text';
                 }
+            },
 
+            goHome() {
+                this.dialogTimeUp = false;
+
+                this.$router.push('/');
+            },
+
+            restart() {
+                location.reload();
             }
         }
     }
