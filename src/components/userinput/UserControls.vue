@@ -64,7 +64,7 @@
         },
 
         mounted() {
-            EventBus.$on('submitAns', this.submitAnswer);
+            window.EventBus.$on('submitAns', this.submitAnswer);
         },
 
         methods: {

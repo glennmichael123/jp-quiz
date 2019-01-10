@@ -29,7 +29,7 @@
                 this.$store.commit('passAnswer', ans);
             },
             submitAnswer() {
-                EventBus.$emit('submitAns');
+                window.EventBus.$emit('submitAns');
             }
 
         }
