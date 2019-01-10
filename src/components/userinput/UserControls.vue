@@ -63,9 +63,19 @@
             }
         },
 
+        mounted() {
+            window.EventBus.$on('submitAns', this.submitAnswer);
+        },
+
         methods: {
             submitAnswer() {
-                this.checkQuestion(this.$store.getters.getAnswer);
+                if (!this.$store.getters.getRightAnswer) {
+                    if (this.$store.getters.getAnswer.trim() !== '') {
+                        this.checkAnswer(this.$store.getters.getAnswer);
+                    }
+                } else {
+                    this.continueQuiz();
+                }
             },
 
             displayQuestion() {
@@ -80,7 +90,7 @@
                 }  
             },
 
-            checkQuestion(string) {
+            checkAnswer(string) {
                 if (string === this.$store.getters.getKanaWords[this.$store.getters.getQuestionCounter].romaji) {
                     this.$store.commit('changeWrongAnswer', false);
                     this.$store.commit('changeRightAnswer', true);

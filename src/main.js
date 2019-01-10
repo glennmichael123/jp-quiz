@@ -12,6 +12,8 @@ import { store } from './store/store'
 Vue.use(VueRouter)
 Vue.use(VueProgressBar, options)
 
+window.EventBus = new Vue();
+
 const options = {
   color: '#26a69a',
   failedColor: '#e53935',
