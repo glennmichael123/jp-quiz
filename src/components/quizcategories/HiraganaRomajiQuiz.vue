@@ -12,9 +12,7 @@
             :fade="$store.getters.getFade">
         </CharacterDisplay>
         
-        <AnswerInput 
-            :temporaryDisable="$store.getters.getRightAnswer">    
-        </AnswerInput>
+        <AnswerInput></AnswerInput>
         <AnswerResponse 
             :wrongAnswer="$store.getters.getWrongAnswer" 
             :rightAnswer="$store.getters.getRightAnswer">
