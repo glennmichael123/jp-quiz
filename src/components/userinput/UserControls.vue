@@ -17,7 +17,7 @@
         </v-flex>
 
         <v-flex md6 v-else>
-            <v-btn color="primary">Finish</v-btn>
+            <v-btn @click="goHome" color="primary">Finish</v-btn>
         </v-flex>
 
 
@@ -29,7 +29,7 @@
             <v-card-title class="headline">おめでとう!</v-card-title>
                     <v-card-text>
                        <div> You finised the quiz before time ran out.</div>
-                        <div>You have <b> {{ (($store.getters.getScoreCorrect - $store.getters.getScoreWrong ) / $store.getters.getScoreCorrect) * 100 }}% </b> accuracy. </div> 
+                        <div>You have <b> {{ Number((($store.getters.getScoreCorrect - $store.getters.getScoreWrong ) / $store.getters.getScoreCorrect) * 100).toFixed(2) }}% </b> accuracy. </div> 
                         <div>すごいです！</div>
                     </v-card-text>
 

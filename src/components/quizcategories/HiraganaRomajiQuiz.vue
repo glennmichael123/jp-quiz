@@ -3,7 +3,7 @@
         <QuizProgress>
         </QuizProgress>
 
-        <Instructions :instruction="'Write the romaji character.'"></Instructions>
+        <Instructions :instruction="'ろーまじで かいてください。'"></Instructions>
 
         <UserScore></UserScore>
 

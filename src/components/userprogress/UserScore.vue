@@ -69,15 +69,24 @@ span {
         data () {
             return {
                 time: 0,
-                secs: 60,
-                userTime: 60,
-                fullTime: '0:00',
+                secs: 270,
+                userTime: 270,
+                fullTime: '',
                 classTime: 'green--text',
                 dialogTimeUp: false,
             }
         },
 
         mounted () {
+            let min = Math.floor(this.secs / 60);
+            let sec = this.secs - min * 60;
+
+            this.fullTime = `${min}:${sec}`;
+
+            if (sec < 10) {
+                this.fullTime = `${min}:0${sec}`;
+            }
+
             let myInterval = setInterval(() => { 
                 if (this.$store.getters.getQuizStatus) {
                     if (this.secs > 0) {
@@ -86,6 +95,7 @@ span {
                         let seconds = this.secs - minutes * 60;
 
                         this.fullTime = `${minutes}:${seconds}`;
+                        
 
                         if (seconds < 10) {
                             this.fullTime = `${minutes}:0${seconds}`;
