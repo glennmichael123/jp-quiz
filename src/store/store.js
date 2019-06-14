@@ -6,6 +6,7 @@ Vue.use(Vuex);
 const initialState = () => {
     let store = {
         answer: '',
+        quizMode: '',
         quizOnGoing: false,
         quizFinished: false,
         rightAnswer: false,
@@ -31,6 +32,10 @@ export const store = new Vuex.Store({
     getters: {
         getAnswer: state => {
             return state.answer;
+        },
+
+        getQuizMode: state => {
+            return state.quizMode;
         },
 
         getFinished: state => {
@@ -89,6 +94,10 @@ export const store = new Vuex.Store({
     mutations: {
         passAnswer (state, ans) {
             state.answer = ans;
+        },
+
+        setQuizMode (state, mode) {
+            state.quizMode = mode;
         },
 
         resetAnswer(state) {

@@ -1,12 +1,12 @@
 <style type="text/css" scoped>
 .card-character {
-    width: 30%; 
+    width: 40%; 
     margin-left: auto; 
     margin-right: auto;
 }
 
 .character {
-    font-size: 100px;
+    font-size: 80px;
 }
 </style>
 
