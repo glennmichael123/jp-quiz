@@ -13,7 +13,7 @@
                 class="answer-input"
                 :value="$store.getters.getAnswer"
                 @input="passAnswer"
-                @keyup.enter="submitAnswer"
+                @keydown.enter="submitAnswer"
                 :disabled="temporaryDisable || !$store.getters.getQuizStatus"
                 box
             ></v-text-field>

@@ -7,12 +7,12 @@
         <v-flex md6 v-if="!$store.getters.getFinished">
             
             <div v-if="!$store.getters.getQuizStatus">
-                <v-btn color="primary" @click="$store.commit('startQuiz', true)">はじめましょう</v-btn>
+                <v-btn color="primary" @click="$store.commit('startQuiz', true)">はじめます</v-btn>
             </div>
 
             <div v-else>
                 <v-btn v-if="!$store.getters.getRightAnswer" :disabled="$store.getters.getAnswer == ''" color="primary" @click="submitAnswer">こたえをチェック </v-btn>
-                <v-btn v-else color="success" @click="continueQuiz">つぎ</v-btn>
+                <v-btn v-else color="success" ref="clickToProceed" @click="continueQuiz">つぎ</v-btn>
             </div>
         </v-flex>
 
@@ -74,24 +74,37 @@
                         this.checkAnswer(this.$store.getters.getAnswer);
                     }
                 } else {
-                    this.continueQuiz();
+                    const elem = this.$refs.clickToProceed
+                    if (!elem) return
+                    elem.$el.click()
                 }
             },
 
             displayQuestion() {
+                let mode = this.$store.getters.getQuizMode;
+
                 if (this.$store.getters.getContinueQuestion) {
                     this.$store.commit('incrementQuestionCounter');
                 }
 
                 if (this.$store.getters.getQuestionCounter < this.$store.getters.getKanaWords.length) {
-                    this.$store.commit('assignCharacter', this.$store.getters.getKanaWords[this.$store.getters.getQuestionCounter].hiragana);
+                    this.$store.commit('assignCharacter', this.$store.getters.getKanaWords[this.$store.getters.getQuestionCounter][mode]);
                 } else {
                     this.$store.commit('finishQuiz', true);
                 }  
             },
 
             checkAnswer(string) {
-                if (string === this.$store.getters.getKanaWords[this.$store.getters.getQuestionCounter].romaji) {
+
+                let mode = this.$store.getters.getQuizMode;
+                let check = '';
+
+                if (mode == 'kanji') {
+                    check = 'hiragana'
+                } else {
+                    check = 'romaji'
+                }
+                if (string === this.$store.getters.getKanaWords[this.$store.getters.getQuestionCounter][check]) {
                     this.$store.commit('changeWrongAnswer', false);
                     this.$store.commit('changeRightAnswer', true);
                     this.$store.commit('updateScoreCorrect');

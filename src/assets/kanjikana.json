@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "kanji": "私",
+    "hiragana": "わたし"
+  },
+  {
+    "id": 2,
+    "kanji": "僕",
+    "hiragana": "ぼく"
+  },
+  {
+    "id": 3,
+    "kanji": "今",
+    "hiragana": "いま"
+  },
+  {
+    "id": 4,
+    "kanji": "今日",
+    "hiragana": "きょう"
+  },
+  {
+    "id": 5,
+    "kanji": "美しい",
+    "hiragana": "うつくしい"
+  },
+  {
+    "id": 6,
+    "kanji": "家",
+    "hiragana": "いえ"
+  },
+  {
+    "id": 7,
+    "kanji": "勉強",
+    "hiragana": "べんきょう"
+  },
+  {
+    "id": 8,
+    "kanji": "お金",
+    "hiragana": "おかね"
+  },
+  {
+    "id": 9,
+    "kanji": "円",
+    "hiragana": "えん"
+  },
+  {
+    "id": 10,
+    "kanji": "大丈夫",
+    "hiragana": "だいじょうぶ"
+  },
+  {
+    "id": 11,
+    "kanji": "思います",
+    "hiragana": "おもいます"
+  },
+  {
+    "id": 12,
+    "kanji": "見た",
+    "hiragana": "みた"
+  },
+  {
+    "id": 13,
+    "kanji": "食べ",
+    "hiragana": "たべ"
+  },
+  {
+    "id": 14,
+    "kanji": "楽し",
+    "hiragana": "たのし"
+  },
+  {
+    "id": 15,
+    "kanji": "何",
+    "hiragana": "なに"
+  },
+  {
+    "id": 16,
+    "kanji": "君",
+    "hiragana": "きみ"
+  },
+  {
+    "id": 17,
+    "kanji": "名前",
+    "hiragana": "なまえ"
+  },
+  {
+    "id": 18,
+    "kanji": "好き",
+    "hiragana": "すき"
+  },
+  {
+    "id": 20,
+    "kanji": "野菜",
+    "hiragana": "やさい"
+  },
+  {
+    "id": 21,
+    "kanji": "魚",
+    "hiragana": "さかな"
+  },
+  {
+    "id": 22,
+    "kanji": "肉",
+    "hiragana": "にく"
+  },
+  {
+    "id": 23,
+    "kanji": "飲み",
+    "hiragana": "のみ"
+  }
+]

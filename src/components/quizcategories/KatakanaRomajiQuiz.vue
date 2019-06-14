@@ -34,13 +34,13 @@
 
     export default {
     components: { CharacterDisplay, Instructions, AnswerInput, AnswerResponse,  QuizProgress, UserControls, UserScore },
-    name: 'HiraganaRomajiQuiz',
+    name: 'KatakanaRomajiQuiz',
 
     mounted () {
         this.$store.commit('assignKanaWords', jpwords);
         this.shuffleQuestions();
         this.displayQuestion();
-        this.$store.commit('setQuizMode', 'hiragana');
+        this.$store.commit('setQuizMode', 'katakana');
     },
 
     destroyed () {
@@ -53,7 +53,7 @@
         },
 
         displayQuestion() {
-            this.$store.commit('assignCharacter', this.$store.getters.getKanaWords[this.$store.getters.getQuestionCounter].hiragana);
+            this.$store.commit('assignCharacter', this.$store.getters.getKanaWords[this.$store.getters.getQuestionCounter].katakana);
         },
     }
 }

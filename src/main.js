@@ -7,6 +7,8 @@ import VueProgressBar from 'vue-progressbar'
 import App from './App.vue'
 import Home from './components/Home.vue'
 import HiraganaRomajiQuiz from './components/quizcategories/HiraganaRomajiQuiz.vue'
+import KatakanaRomajiQuiz from './components/quizcategories/KatakanaRomajiQuiz.vue'
+import KanjiKanaQuiz from './components/quizcategories/KanjiKanaQuiz'
 import { store } from './store/store'
 
 Vue.use(VueRouter)
@@ -41,7 +43,9 @@ const meta = {
 
 const routes = [ 
   { path: '/', component:  Home, name: '/', meta },
-  { path: '/hiraganaromajiquiz', component: HiraganaRomajiQuiz, name: 'hiraganaromajiquiz', meta }
+  { path: '/hiraganaromajiquiz', component: HiraganaRomajiQuiz, name: 'hiraganaromajiquiz', meta },
+  { path: '/katakanaromajiquiz', component: KatakanaRomajiQuiz, name: 'katakanaromajiquiz', meta },
+  { path: '/kanjikanaquiz', component: KanjiKanaQuiz, name: 'kanjikanaquiz', meta },
 ]
 
 const router = new VueRouter({

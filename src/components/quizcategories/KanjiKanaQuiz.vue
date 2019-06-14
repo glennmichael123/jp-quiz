@@ -30,17 +30,17 @@
     import UserControls from '../userinput/UserControls';
     import QuizProgress from '../userprogress/QuizProgress';
     import UserScore from '../userprogress/UserScore';
-    import jpwords from '../../assets/jpwords.json';
+    import kanjikana from '../../assets/kanjikana.json';
 
     export default {
     components: { CharacterDisplay, Instructions, AnswerInput, AnswerResponse,  QuizProgress, UserControls, UserScore },
-    name: 'HiraganaRomajiQuiz',
+    name: 'KatakanaRomajiQuiz',
 
     mounted () {
-        this.$store.commit('assignKanaWords', jpwords);
+        this.$store.commit('assignKanaWords', kanjikana);
         this.shuffleQuestions();
         this.displayQuestion();
-        this.$store.commit('setQuizMode', 'hiragana');
+        this.$store.commit('setQuizMode', 'kanji');
     },
 
     destroyed () {
@@ -53,7 +53,7 @@
         },
 
         displayQuestion() {
-            this.$store.commit('assignCharacter', this.$store.getters.getKanaWords[this.$store.getters.getQuestionCounter].hiragana);
+            this.$store.commit('assignCharacter', this.$store.getters.getKanaWords[this.$store.getters.getQuestionCounter].kanji);
         },
     }
 }

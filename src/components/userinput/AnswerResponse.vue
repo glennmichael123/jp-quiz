@@ -3,7 +3,7 @@
         <v-slide-y-transition>
             <v-layout row wrap mb-2 v-if="$store.getters.getWrongAnswer">
                 <v-flex md12>
-                    <h2 class="red--text"> ちがうです! <i class="fas fa-times"></i></h2>
+                    <h2 class="red--text"> まちがいです! <i class="fas fa-times"></i></h2>
                 </v-flex>
             </v-layout>
 
