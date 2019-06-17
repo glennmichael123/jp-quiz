@@ -3,7 +3,7 @@
         <QuizProgress>
         </QuizProgress>
 
-        <Instructions :instruction="'ろーまじで かいてください。'"></Instructions>
+        <Instructions :instruction="'ひらがなで かいてください。'"></Instructions>
 
         <UserScore></UserScore>
 
