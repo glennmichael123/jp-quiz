@@ -108,5 +108,65 @@
     "id": 23,
     "kanji": "飲み",
     "hiragana": "のみ"
+  },
+  {
+    "id": 24,
+    "kanji": "元気",
+    "hiragana": "げんき"
+  },
+  {
+    "id": 25,
+    "kanji": "お母さん",
+    "hiragana": "おかあさん"
+  },
+  {
+    "id": 26,
+    "kanji": "先生",
+    "hiragana": "せんせい"
+  },
+  {
+    "id": 27,
+    "kanji": "先輩",
+    "hiragana": "せんぱい"
+  },
+  {
+    "id": 28,
+    "kanji": "学生",
+    "hiragana": "がくせい"
+  },
+  {
+    "id": 29,
+    "kanji": "時間",
+    "hiragana": "じかん"
+  },
+  {
+    "id": 30,
+    "kanji": "人",
+    "hiragana": "ひと"
+  },
+  {
+    "id": 31,
+    "kanji": "人間",
+    "hiragana": "にんげん"
+  },
+  {
+    "id": 32,
+    "kanji": "犬",
+    "hiragana": "いぬ"
+  },
+  {
+    "id": 33,
+    "kanji": "山",
+    "hiragana": "やま"
+  },
+  {
+    "id": 34,
+    "kanji": "週",
+    "hiragana": "しゅう"
+  },
+  {
+    "id": 35,
+    "kanji": "明日",
+    "hiragana": "あした"
   }
 ]
