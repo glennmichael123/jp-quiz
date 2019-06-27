@@ -20,7 +20,7 @@ span {
             </v-flex>
 
             <v-flex md4> 
-                <span :class="classTime"> {{ fullTime }} </span>
+               <!--  <span :class="classTime"> {{ fullTime }} </span> -->
             </v-flex>
             <v-flex md4> 
                 <span class="wrong red--text"><i class="fas fa-times"></i> {{ $store.getters.getScoreWrong }}</span> 
@@ -78,53 +78,53 @@ span {
         },
 
         mounted () {
-            let min = Math.floor(this.secs / 60);
-            let sec = this.secs - min * 60;
+            // let min = Math.floor(this.secs / 60);
+            // let sec = this.secs - min * 60;
 
-            this.fullTime = `${min}:${sec}`;
+            // this.fullTime = `${min}:${sec}`;
 
-            if (sec < 10) {
-                this.fullTime = `${min}:0${sec}`;
-            }
+            // if (sec < 10) {
+            //     this.fullTime = `${min}:0${sec}`;
+            // }
 
-            let myInterval = setInterval(() => { 
-                if (this.$store.getters.getQuizStatus) {
-                    if (this.secs > 0) {
-                        this.countdown();
-                        let minutes = Math.floor(this.secs / 60);
-                        let seconds = this.secs - minutes * 60;
+            // let myInterval = setInterval(() => { 
+            //     if (this.$store.getters.getQuizStatus) {
+            //         if (this.secs > 0) {
+            //             this.countdown();
+            //             let minutes = Math.floor(this.secs / 60);
+            //             let seconds = this.secs - minutes * 60;
 
-                        this.fullTime = `${minutes}:${seconds}`;
+            //             this.fullTime = `${minutes}:${seconds}`;
                         
 
-                        if (seconds < 10) {
-                            this.fullTime = `${minutes}:0${seconds}`;
-                        }
+            //             if (seconds < 10) {
+            //                 this.fullTime = `${minutes}:0${seconds}`;
+            //             }
 
-                    } else {
-                        this.dialogTimeUp = true;
-                        clearInterval(myInterval);
-                    }
-                } 
+            //         } else {
+            //             this.dialogTimeUp = true;
+            //             clearInterval(myInterval);
+            //         }
+            //     } 
 
-                if (this.$store.getters.getFinished) {
-                    clearInterval(myInterval);
-                }
-            }, 1000); 
+            //     if (this.$store.getters.getFinished) {
+            //         clearInterval(myInterval);
+            //     }
+            // }, 1000); 
         },
 
         methods: {
-            countdown () {
-                this.secs--;
+            // countdown () {
+            //     this.secs--;
 
-                this.time = (( this.secs * 100) / this.userTime );
+            //     this.time = (( this.secs * 100) / this.userTime );
 
-                if (this.time <= 40 && this.time >= 20) {
-                    this.classTime = 'orange--text';
-                } else if(this.time < 10) {
-                    this.classTime = 'red--text';
-                }
-            },
+            //     if (this.time <= 40 && this.time >= 20) {
+            //         this.classTime = 'orange--text';
+            //     } else if(this.time < 10) {
+            //         this.classTime = 'red--text';
+            //     }
+            // },
 
             goHome() {
                 this.dialogTimeUp = false;

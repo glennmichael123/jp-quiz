@@ -1,172 +1,162 @@
 [
   {
-    "id": 1,
-    "kanji": "私",
-    "hiragana": "わたし"
+    "kanji": "学校",
+    "hiragana": "がっこう"
   },
   {
-    "id": 2,
-    "kanji": "僕",
-    "hiragana": "ぼく"
+    "kanji": "川",
+    "hiragana": "かわ"
   },
   {
-    "id": 3,
-    "kanji": "今",
-    "hiragana": "いま"
+    "kanji": "手",
+    "hiragana": "て"
   },
   {
-    "id": 4,
-    "kanji": "今日",
-    "hiragana": "きょう"
+    "kanji": "戸",
+    "hiragana": "と"
   },
   {
-    "id": 5,
-    "kanji": "美しい",
-    "hiragana": "うつくしい"
+    "kanji": "眼鏡",
+    "hiragana": "めがね"
   },
   {
-    "id": 6,
-    "kanji": "家",
-    "hiragana": "いえ"
+    "kanji": "煙草",
+    "hiragana": "たばこ"
   },
   {
-    "id": 7,
-    "kanji": "勉強",
-    "hiragana": "べんきょう"
+    "kanji": "赤",
+    "hiragana": "あか"
   },
   {
-    "id": 8,
-    "kanji": "お金",
-    "hiragana": "おかね"
+    "kanji": "仕事",
+    "hiragana": "しごと"
   },
   {
-    "id": 9,
-    "kanji": "円",
-    "hiragana": "えん"
+    "kanji": "英語",
+    "hiragana": "えいご"
   },
   {
-    "id": 10,
-    "kanji": "大丈夫",
-    "hiragana": "だいじょうぶ"
+    "kanji": "問題",
+    "hiragana": "もんだい"
   },
   {
-    "id": 11,
-    "kanji": "思います",
-    "hiragana": "おもいます"
+    "kanji": "部屋",
+    "hiragana": "へや"
   },
   {
-    "id": 12,
-    "kanji": "見た",
-    "hiragana": "みた"
+    "kanji": "子供",
+    "hiragana": "こども"
   },
   {
-    "id": 13,
-    "kanji": "食べ",
-    "hiragana": "たべ"
-  },
-  {
-    "id": 14,
-    "kanji": "楽し",
-    "hiragana": "たのし"
-  },
-  {
-    "id": 15,
-    "kanji": "何",
-    "hiragana": "なに"
-  },
-  {
-    "id": 16,
-    "kanji": "君",
-    "hiragana": "きみ"
-  },
-  {
-    "id": 17,
-    "kanji": "名前",
-    "hiragana": "なまえ"
-  },
-  {
-    "id": 18,
-    "kanji": "好き",
-    "hiragana": "すき"
-  },
-  {
-    "id": 20,
-    "kanji": "野菜",
-    "hiragana": "やさい"
-  },
-  {
-    "id": 21,
-    "kanji": "魚",
-    "hiragana": "さかな"
-  },
-  {
-    "id": 22,
-    "kanji": "肉",
-    "hiragana": "にく"
-  },
-  {
-    "id": 23,
-    "kanji": "飲み",
-    "hiragana": "のみ"
-  },
-  {
-    "id": 24,
-    "kanji": "元気",
-    "hiragana": "げんき"
-  },
-  {
-    "id": 25,
-    "kanji": "お母さん",
-    "hiragana": "おかあさん"
-  },
-  {
-    "id": 26,
-    "kanji": "先生",
-    "hiragana": "せんせい"
-  },
-  {
-    "id": 27,
-    "kanji": "先輩",
-    "hiragana": "せんぱい"
-  },
-  {
-    "id": 28,
-    "kanji": "学生",
-    "hiragana": "がくせい"
-  },
-  {
-    "id": 29,
     "kanji": "時間",
     "hiragana": "じかん"
   },
   {
-    "id": 30,
-    "kanji": "人",
-    "hiragana": "ひと"
+    "kanji": "雨",
+    "hiragana": "あめ"
   },
   {
-    "id": 31,
-    "kanji": "人間",
-    "hiragana": "にんげん"
+    "kanji": "先生",
+    "hiragana": "せんせい"
   },
   {
-    "id": 32,
-    "kanji": "犬",
-    "hiragana": "いぬ"
+    "kanji": "年",
+    "hiragana": "とし"
   },
   {
-    "id": 33,
-    "kanji": "山",
-    "hiragana": "やま"
+    "kanji": "手紙",
+    "hiragana": "てがみ"
   },
   {
-    "id": 34,
-    "kanji": "週",
-    "hiragana": "しゅう"
+    "kanji": "電話",
+    "hiragana": "でんわ"
   },
   {
-    "id": 35,
-    "kanji": "明日",
-    "hiragana": "あした"
+    "kanji": "水",
+    "hiragana": "みず"
+  },
+  {
+    "kanji": "病気",
+    "hiragana": "びょうき"
+  },
+  {
+    "kanji": "会社",
+    "hiragana": "かいしゃ"
+  },
+  {
+    "kanji": "上げる",
+    "hiragana": "あげる"
+  },
+  {
+    "kanji": "結婚",
+    "hiragana": "けっこん"
+  },
+  {
+    "kanji": "言葉",
+    "hiragana": "ことば"
+  },
+  {
+    "kanji": "目",
+    "hiragana": "め"
+  },
+  {
+    "kanji": "走る",
+    "hiragana": "はしる"
+  },
+  {
+    "kanji": "名前",
+    "hiragana": "なまえ"
+  },
+  {
+    "kanji": "旅行",
+    "hiragana": "りょこう"
+  },
+  {
+    "kanji": "道",
+    "hiragana": "みち"
+  },
+  {
+    "kanji": "飛行機",
+    "hiragana": "ひこうき"
+  },
+  {
+    "kanji": "映画",
+    "hiragana": "えいが"
+  },
+  {
+    "kanji": "音楽",
+    "hiragana": "おんがく"
+  },
+  {
+    "kanji": "木",
+    "hiragana": "き"
+  },
+  {
+    "kanji": "大学",
+    "hiragana": "だいがく"
+  },
+  {
+    "kanji": "時計",
+    "hiragana": "とけい"
+  },
+  {
+    "kanji": "家族",
+    "hiragana": "かぞく"
+  },
+  {
+    "kanji": "花",
+    "hiragana": "はな"
+  },
+  {
+    "kanji": "猫",
+    "hiragana": "ねこ"
+  },
+  {
+    "kanji": "毎日",
+    "hiragana": "まいにち"
+  },
+  {
+    "kanji": "宿題",
+    "hiragana": "しゅくだい"
   }
 ]
